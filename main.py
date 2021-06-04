@@ -27,6 +27,7 @@ def close_and_open():
 def go_to_first_pop():
     window = get_window()
     (top_x, top_y) = window.topleft
+    (_, mid_y) = window.midleft
 
     pyautogui.moveTo(top_x + 125, mid_y + 70)
 
@@ -56,14 +57,14 @@ def split_pops(key):
     close_and_open()
 
     # add unsplited pops
-    pyautogui.press('a', presses=5)
+    pyautogui.press('a', presses=3)
 
     go_to_first_pop()
 
-    for i in range(5):
+    for i in range(3):
 
         # go next pop
-        pyautogui.moveTo(pop_pos_x, pop_pos_y + 60 * i)
+        pyautogui.moveTo(top_x + 125, mid_y + 70 + 60 * i)
         time.sleep(0.1)
         pyautogui.click()
 
@@ -127,7 +128,7 @@ def add_clerk(key):
 def main():
 
     # move faster
-    pyautogui.PAUSE = 0.05
+    pyautogui.PAUSE = 0.03
 
     # register hotkeys
     keyboard.on_press_key("space", pause)
