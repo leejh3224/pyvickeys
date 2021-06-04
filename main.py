@@ -127,6 +127,8 @@ def add_clerk(key):
 
 def main():
 
+    print('script is running')
+
     # move faster
     pyautogui.PAUSE = 0.03
 
